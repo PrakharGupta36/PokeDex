@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap");
+
+* {
+  font-family: Raleway;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.card {
+  display: grid;
+  place-items: center;
+  width: 150px;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 2px 2px black;
+
+  img {
+    position: relative;
+    bottom: 5rem;
+  }
+}

@@ -1,0 +1,36 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+export default function Card({ name, pokemonIndex }) {
+  // const [data, setData] = useState();
+
+  async function getData() {
+    let url = `https://pokeapi.co/api/v2/pokemon?&limit=1`;
+    await fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <article>
+      <Link to={`/pokemon/${pokemonIndex}`}>
+        <div className='card'>
+          <img
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonIndex}.png`}
+            loading='lazy'
+            alt='img'
+          />
+          <p style={{ color: "gray" }}> #{pokemonIndex} </p>
+
+          <p className='name'>{name.charAt(0).toUpperCase() + name.slice(1)}</p>
+        </div>
+      </Link>
+    </article>
+  );
+}
